@@ -117,6 +117,18 @@ class Okx:
             raise error.AmountPercentBothError()
         elif order_info.amount is not None:
             if order_info.is_contract:
+
+                '''
+                result = self.client.amount_to_precision(
+                    order_info.unified_symbol,
+                    float(
+                        Decimal(str(order_info.amount))
+                        // Decimal(str(order_info.contract_size))
+                    ),
+                )
+                '''
+
+                '''
                 try:
                     result = self.client.amount_to_precision(
                         order_info.unified_symbol,
@@ -129,6 +141,10 @@ class Okx:
                     msg = 'order_info.unified_symbol:{} order_info.amount:{} str(order_info.amount):{} Decimal(str(order_info.amount)):{} float(Decimal(str(order_info.amount))):{}'.format(order_info.unified_symbol, order_info.amount, str(order_info.amount), Decimal(str(order_info.amount)), float(Decimal(str(order_info.amount))))
                     # print(msg)
                     raise Exception(msg)
+                '''
+
+                result = self.client.amount_to_precision(order_info.unified_symbol, float(Decimal(str(order_info.amount)) // Decimal(str(order_info.contract_size))))
+
             else:
                 result = order_info.amount
         elif order_info.percent is not None:
