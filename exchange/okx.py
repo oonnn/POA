@@ -143,9 +143,7 @@ class Okx:
                     raise Exception(msg)
                 '''
 
-                # result = self.client.amount_to_precision(order_info.unified_symbol, float(Decimal(str(order_info.amount)) // Decimal(str(order_info.contract_size))))
-
-                result = order_info.amount
+                result = self.client.amount_to_precision(order_info.unified_symbol, float(Decimal(str(order_info.amount)) / Decimal(str(order_info.contract_size))))
 
             else:
                 result = order_info.amount
