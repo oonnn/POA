@@ -97,7 +97,7 @@ def log_order_message(exchange_name, order_result: dict, order_info: MarketOrder
                 if exchange_name == "OKX":
                     if order_info.is_futures:
                         f_name = "계약(수량)"
-                        amount = f"{order_info.amount // order_info.contract_size}({order_info.contract_size * (order_info.amount // order_info.contract_size)})"
+                        amount = f"{order_info.amount / order_info.contract_size}({order_info.contract_size * (order_info.amount / order_info.contract_size)})" # amount = f"{order_info.amount // order_info.contract_size}({order_info.contract_size * (order_info.amount // order_info.contract_size)})" # BOOKK-FIX #
                     else:
                         amount = f"{order_info.amount}"
                 else:
