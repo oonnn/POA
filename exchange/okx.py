@@ -270,11 +270,11 @@ class Okx:
 
         params = {}
         if order_info.leverage is None:
-            self.set_leverage(1, symbol)
+            pass # self.set_leverage(1, symbol) # BOOKK-FIX #
         else:
             self.set_leverage(order_info.leverage, symbol)
         if order_info.margin_mode is None:
-            params |= {"tdMode": "isolated"}
+            pass # params |= {"tdMode": "isolated"} # BOOKK-FIX #
         else:
             params |= {"tdMode": order_info.margin_mode}
 
