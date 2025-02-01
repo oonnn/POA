@@ -274,7 +274,7 @@ class Okx:
         else:
             self.set_leverage(order_info.leverage, symbol)
         if order_info.margin_mode is None:
-            pass # params |= {"tdMode": "isolated"} # BOOKK-FIX #
+            params |= {"tdMode": "isolated"}
         else:
             params |= {"tdMode": order_info.margin_mode}
 
